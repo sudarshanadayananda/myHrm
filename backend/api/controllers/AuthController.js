@@ -57,7 +57,8 @@ module.exports = {
                             return res.send({ status: Config.STATUS.SUCCESS, data: data, token: token });
                         });
                     }
-                    return res.send({ status: Config.STATUS.FAILED, message: Config.RESPONSE_MESSAGE.INVALID_PASSWORD });
+                    else
+                        return res.send({ status: Config.STATUS.FAILED, message: Config.RESPONSE_MESSAGE.INVALID_PASSWORD });
                 });
             });
     },
