@@ -28,7 +28,12 @@ export class UserService {
     this.CMS_API = ENV.CMS_API;
   }
 
-  registerUser(data: any): Observable<any>{
-      return this.http.post(this.CMS_API + 'api/user/signup', data, noAuthHeader );
+
+  login(authCredentials){
+    return this.http.post(this.CMS_API + 'api/auth/authenticate', authCredentials, noAuthHeader);
+  }
+
+  addUser(data: any): Observable<any>{
+      return this.http.post(this.CMS_API + 'api/user/addUser', data, noAuthHeader );
   }
 }
