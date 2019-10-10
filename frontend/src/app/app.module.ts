@@ -43,6 +43,9 @@ import {MatTreeModule} from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
 import { HeaderComponent } from '../app/core/navigation/header/header.component';
 import { SidenavListComponent } from '../app/core/navigation/sidenav-list/sidenav-list.component';
+
+import { UserService } from './shared/user.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -99,7 +102,7 @@ import { SidenavListComponent } from '../app/core/navigation/sidenav-list/sidena
     CUSTOM_ELEMENTS_SCHEMA
 ],
   providers: [
-    
+    UserService
   ],
   bootstrap: [AppComponent]
 })

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../../../shared/user.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-sign-in',
@@ -22,6 +23,12 @@ export class SignInComponent implements OnInit {
   ngOnInit() {
   }
 
-  onSubmit(form : NgForm){ }
+  onSubmit(form : NgForm){
+    this.userService.login(form.value).subscribe(
+      res => {
+        console.log(res);
+        this.router.navigateByUrl('/admin');
+      });
+  }
 
 }
