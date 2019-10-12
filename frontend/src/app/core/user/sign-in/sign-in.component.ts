@@ -21,14 +21,20 @@ export class SignInComponent implements OnInit {
   constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit() {
+    if(this.userService.isLoggedIn())
+    this.router.navigateByUrl('/admin');
   }
 
   onSubmit(form : NgForm){
     this.userService.login(form.value).subscribe(
       res => {
-        console.log(res);
+        this.userService.setToken(res['token']);
         this.router.navigateByUrl('/admin');
-      });
+      },
+      err => {
+        this.serverErrorMessage = err.error.message;
+      }
+    );
   }
 
 }
