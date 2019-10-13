@@ -41,6 +41,7 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
+import { FrontHeaderComponent } from '../app/core/front-header/front-header.component';
 import { HeaderComponent } from '../app/core/navigation/header/header.component';
 import { SidenavListComponent } from '../app/core/navigation/sidenav-list/sidenav-list.component';
 
@@ -51,7 +52,8 @@ import { UserService } from './shared/user.service';
     AppComponent,
     HeaderComponent,
     SidenavListComponent,
-    UserComponent
+    UserComponent,
+    FrontHeaderComponent
   ],
   imports: [
     BrowserModule,

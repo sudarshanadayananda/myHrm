@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HeaderComponent } from './navigation/header/header.component';
 // import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
@@ -43,14 +42,15 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
+// import { FrontHeaderComponent } from './front-header/front-header.component';
 @NgModule({
   declarations: [
     FooterComponent,
-    LoginComponent,
     //HeaderComponent,
     //SidenavListComponent,
     // UserComponent,
-    SignInComponent
+    SignInComponent,
+    // FrontHeaderComponent
   ],
   imports: [
     CommonModule,
