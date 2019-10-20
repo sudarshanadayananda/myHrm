@@ -1,20 +1,18 @@
 import { Injectable } from '@angular/core';
-import { User } from './user.model';
+import { User } from '../../../shared/models/user/user.model';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { environment as ENV } from '../../environments/environment';
+import { environment as ENV } from '../../../../environments/environment';
 import { Observable } from 'rxjs';
 
 const httpOptions = {
   headers: new HttpHeaders().set('Content-Type', 'application/json')
 };
 
-const noAuthHeader = { headers: new HttpHeaders({ 'NoAuth' : 'True' }) };
-
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
- 
+
   selectedUser: User = {
     name: '',
     email: '',
@@ -33,9 +31,9 @@ export class UserService {
     return this.http.post(this.CMS_API + 'api/auth/authenticate', authCredentials, httpOptions);
   }
 
-  addUser(data: any): Observable<any>{
-      return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions );
-  }
+  // addUser(data: any): Observable<any>{
+  //     return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions );
+  // }
 
   setToken(token: string) {
     localStorage.setItem('token', token);

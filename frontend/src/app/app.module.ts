@@ -6,7 +6,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { UserComponent } from '../app/core/user/user.component';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -41,19 +40,14 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
-import { FrontHeaderComponent } from '../app/core/front-header/front-header.component';
-import { HeaderComponent } from '../app/core/navigation/header/header.component';
-import { SidenavListComponent } from '../app/core/navigation/sidenav-list/sidenav-list.component';
 
-import { UserService } from './shared/user.service';
+// import { HeaderComponent } from './shared/components/navigation-header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    SidenavListComponent,
-    UserComponent,
-    FrontHeaderComponent
+    // HeaderComponent,
+  
   ],
   imports: [
     BrowserModule,
@@ -102,9 +96,9 @@ import { UserService } from './shared/user.service';
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA
-],
+  ],
   providers: [
-    UserService
+ 
   ],
   bootstrap: [AppComponent]
 })

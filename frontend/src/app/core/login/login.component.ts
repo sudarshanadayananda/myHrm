@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
-import { UserService } from '../../../shared/user.service';
-import { from } from 'rxjs';
+import { UserService } from '../services/user/user.service';
 
 @Component({
-  selector: 'app-sign-in',
-  templateUrl: './sign-in.component.html',
-  styleUrls: ['./sign-in.component.scss']
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class SignInComponent implements OnInit {
+export class LoginComponent implements OnInit {
   model = {
     email: '',
     password: ''
@@ -29,7 +28,10 @@ export class SignInComponent implements OnInit {
     this.userService.login(form.value).subscribe(
       res => {
         this.userService.setToken(res['token']);
+        if (res['data'].role == 'ADMIN_USER')
         this.router.navigateByUrl('/admin');
+        else
+        this.router.navigateByUrl('/user');
       },
       err => {
         this.serverErrorMessage = err.error.message;

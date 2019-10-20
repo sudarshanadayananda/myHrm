@@ -3,11 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { HeaderComponent } from './navigation/header/header.component';
-// import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';
-// import { UserComponent } from './user/user.component';
-import { SignInComponent } from './user/sign-in/sign-in.component';
-
-
+// import { SidenavListComponent } from './navigation/sidenav-list/sidenav-list.component';onent'
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
 import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
@@ -42,15 +38,17 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatSliderModule } from '@angular/material/slider';
-// import { FrontHeaderComponent } from './front-header/front-header.component';
+import { LoginComponent } from './login/login.component';
+import { FrontHeaderComponent } from './front-header/front-header.component';
+
+import { UserService } from './services/user/user.service';
 @NgModule({
   declarations: [
     FooterComponent,
     //HeaderComponent,
     //SidenavListComponent,
-    // UserComponent,
-    SignInComponent,
-    // FrontHeaderComponent
+    LoginComponent,
+    FrontHeaderComponent
   ],
   imports: [
     CommonModule,
@@ -91,6 +89,9 @@ import { MatSliderModule } from '@angular/material/slider';
     MatToolbarModule,
     MatTooltipModule,
     MatTreeModule,
-  ]
+  ],
+  providers: [
+    UserService
+  ],
 })
 export class CoreModule {}
