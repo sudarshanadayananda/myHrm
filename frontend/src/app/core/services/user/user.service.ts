@@ -26,15 +26,12 @@ export class UserService {
     this.CMS_API = ENV.CMS_API;
   }
 
-
+  //Login
   login(authCredentials){
     return this.http.post(this.CMS_API + 'api/auth/authenticate', authCredentials, httpOptions);
   }
 
-  // addUser(data: any): Observable<any>{
-  //     return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions );
-  // }
-
+  //functions for reading & deleting JWT tokens from local storage
   setToken(token: string) {
     localStorage.setItem('token', token);
   }
@@ -47,6 +44,7 @@ export class UserService {
     localStorage.removeItem('token');
   }
 
+  //return information stored in  JWT payload
   getUserPayload() {
     var token = this.getToken();
     if (token) {
@@ -57,6 +55,7 @@ export class UserService {
       return null;
   }
  
+  //check whether the user is logged in or not & check for token expiration
   isLoggedIn() {
     var userPayload = this.getUserPayload();
     if (userPayload)
@@ -64,4 +63,9 @@ export class UserService {
     else
       return false;
   }
+
+     // addUser(data: any): Observable<any>{
+    //     return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions );
+   // }
+
 }
