@@ -3,15 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 import { LoginComponent } from './core/login/login.component';
 
 const routes: Routes = [
- 
-  {
-    path: 'login', component: LoginComponent,
-    // children: [{ path: '', component: SignInComponent}]
-  },
-  {
-    path: '', redirectTo: '/login', pathMatch: 'full'
-  },
 
+  { path: 'login', component: LoginComponent },
   // Lazy Loading AdminUserModule
   { path: 'admin', loadChildren: './modules/admin-user/admin-user.module#AdminUserModule' },
   // Lazy Loading AppUserModule
