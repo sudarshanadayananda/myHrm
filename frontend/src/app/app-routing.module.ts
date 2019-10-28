@@ -11,6 +11,7 @@ const routes: Routes = [
     path: '', redirectTo: '/login', pathMatch: 'full'
   },
 
+ 
   // Lazy Loading AdminUserModule
   { path: 'admin', loadChildren: './modules/admin-user/admin-user.module#AdminUserModule' },
   // Lazy Loading AppUserModule
