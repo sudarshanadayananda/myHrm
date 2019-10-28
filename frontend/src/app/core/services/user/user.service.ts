@@ -64,8 +64,4 @@ export class UserService {
       return false;
   }
 
-     // addUser(data: any): Observable<any>{
-    //     return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions );
-   // }
-
 }
