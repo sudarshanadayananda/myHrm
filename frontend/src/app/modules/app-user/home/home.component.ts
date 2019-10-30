@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from "@angular/router";
-import { UserService } from '../../../core/services/user/user.service';
+import { AuthService } from '../../../core/services/auth/auth.service';
 
 @Component({
   selector: 'app-home',
@@ -9,13 +9,13 @@ import { UserService } from '../../../core/services/user/user.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
   }
 
   onLogout(){
-    this.userService.deleteToken();
+    this.authService.deleteToken();
     this.router.navigate(['/login']);
   }
 }
