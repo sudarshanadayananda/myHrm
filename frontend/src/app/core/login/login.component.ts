@@ -22,8 +22,8 @@ export class LoginComponent implements OnInit {
   constructor(private userService: UserService, private authService: AuthService ,private router: Router) { }
 
   ngOnInit() {
-    // if(this.authService.isLoggedIn())
-    // this.router.navigate(['/admin']);
+    if(this.authService.isLoggedIn())
+    this.router.navigate(['/admin']);
   }
 
   onSubmit(form : NgForm){
@@ -33,7 +33,7 @@ export class LoginComponent implements OnInit {
         if (res['data'].role == 'ADMIN_USER')
         this.router.navigate(['/admin']);
         else
-        this.router.navigate(['/user']);
+        this.router.navigate(['/appuser']);
       },
       err => {
         this.serverErrorMessage = err.error.message;

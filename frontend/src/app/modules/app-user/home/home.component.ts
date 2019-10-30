@@ -12,10 +12,12 @@ export class HomeComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit() {
+ 
   }
 
   onLogout(){
     this.authService.deleteToken();
     this.router.navigate(['/login']);
   }
+ 
 }

@@ -1,6 +1,14 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-navigationlist-appuser (sidenavClose)="sidenav.close()"></app-navigationlist-appuser>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <app-navigation-header (sidenavToggle)="sidenav.toggle()"></app-navigation-header>
+    <main>
+      <router-outlet>
+        <h1>App User</h1>
+      </router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
 
-<h1>App User</h1>
-<button mat-menu-item (click)="onLogout()">
-  <mat-icon>power_settings_new</mat-icon>
-  <span>Sign Out</span>
-</button>

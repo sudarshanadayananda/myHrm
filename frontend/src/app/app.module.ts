@@ -8,12 +8,10 @@ import { CoreModule } from './core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from '../material-module';
 
-// import { HeaderComponent } from './shared/components/navigation-header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    // HeaderComponent,
   
   ],
   imports: [
@@ -25,7 +23,7 @@ import { MaterialModule } from '../material-module';
     HttpClientModule
   ],
   exports: [
-   
+  
   ],
   schemas: [
     CUSTOM_ELEMENTS_SCHEMA

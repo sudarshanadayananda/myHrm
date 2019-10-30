@@ -1,6 +1,22 @@
-<h1>Admin</h1>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-navigationlist-admin (sidenavClose)="sidenav.close()"></app-navigationlist-admin>
+  </mat-sidenav>
 
-<button mat-menu-item (click)="onLogout()">
-  <mat-icon>power_settings_new</mat-icon>
-  <span>Sign Out</span>
-</button>
+  <mat-sidenav-content>
+    <app-navigation-header (sidenavToggle)="sidenav.toggle()"></app-navigation-header>
+    <main>
+      <router-outlet>
+        <h1>Admin</h1>
+      </router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+  
+  
+  
+  
+
+
