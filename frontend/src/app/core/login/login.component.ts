@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user/user.service';
 import { AuthService } from '../services/auth/auth.service';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -10,13 +11,13 @@ import { AuthService } from '../services/auth/auth.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  model = {
-    email: '',
-    password: ''
-  };
-  
-  // email validation
-  emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+   loginForm = new FormGroup({
+    email: new FormControl(''),
+    password: new FormControl(''),
+  });
+
+ 
   serverErrorMessage: string;
 
   constructor(private userService: UserService, private authService: AuthService ,private router: Router) { }
@@ -26,8 +27,8 @@ export class LoginComponent implements OnInit {
     this.router.navigate(['/admin']);
   }
 
-  onSubmit(form : NgForm){
-    this.userService.login(form.value).subscribe(
+  onSubmit(loginForm){
+    this.userService.login(loginForm.value).subscribe(
       res => {
         this.authService.setToken(res['token']);
         if (res['data'].role == 'ADMIN_USER')
