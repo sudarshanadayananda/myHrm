@@ -1,3 +1,61 @@
-<p>
-  add-user works!
-</p>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav role="navigation">
+    <app-navigationlist-admin (sidenavClose)="sidenav.close()"></app-navigationlist-admin>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <app-navigation-header (sidenavToggle)="sidenav.toggle()"></app-navigation-header>
+    <main>
+      <router-outlet>
+        <mat-card class="example-card">
+            <mat-card-header>
+              <mat-card-title>Add User</mat-card-title>
+            </mat-card-header>
+
+            <mat-card-content>
+                
+                <form  [formGroup]="AddUserForm" (ngSubmit)="addUser(AddUserForm)">
+                  <div class="ex-container">
+                    <mat-form-field>
+                      <input type="text" formControlName="name"  matInput placeholder="Name">
+                    </mat-form-field>
+                  
+                    <mat-form-field>
+                        <input type="text" formControlName="email"  matInput placeholder="Email">
+                    </mat-form-field>
+                  
+                    <mat-form-field>
+                        <input type="text" formControlName="password" matInput placeholder="Password">
+                    </mat-form-field>
+
+                    <!-- err ? -->
+                    <mat-form-field>
+                      <mat-select formControlName="role" placeholder="Select">
+                        <mat-option *ngFor="let option of options" value="option">{{option.name}}</mat-option>
+                      </mat-select>
+                    </mat-form-field>
+
+                    <div class="example-button-row">
+                        <button type="submit" mat-raised-button color="primary">Submit</button>
+                    </div>
+                  </div>
+                </form> 
+                 
+            </mat-card-content>
+        
+        </mat-card>
+      </router-outlet>
+    </main>
+  </mat-sidenav-content>
+</mat-sidenav-container>
+
+
+
+
+  
+  
+  
+
+
+
+

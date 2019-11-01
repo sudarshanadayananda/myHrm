@@ -1,0 +1,36 @@
+mat-sidenav-container, mat-sidenav-content, mat-sidenav {
+    height: 100%;
+}
+ 
+mat-sidenav {
+    width: 250px;
+}
+ 
+main {
+    padding: 10px;
+}
+
+.ex-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ex-container > * {
+    width: 100%;
+  }
+  
+  .example-card {
+    max-width: 1000px;
+    -webkit-border-radius: 10px 10px 10px 10px;
+    border-radius: 10px 10px 10px 10px;
+    background: #fff;
+    width: 90%;
+    position: relative;
+    -webkit-box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+    box-shadow: 0 30px 60px 0 rgba(0,0,0,0.3);
+  }
+
+  .example-button-row button,
+  .example-button-row a {
+    margin-right: 8px;
+}

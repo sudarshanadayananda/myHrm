@@ -8,13 +8,14 @@ import { AuthService } from '../../../core/services/auth/auth.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-
+ 
   constructor(private authService: AuthService, private router: Router) { }
+
   ngOnInit() {
-    
+
   }
 
-  onLogout(){
+  onLogout() : void{
     this.authService.deleteToken();
     this.router.navigate(['/login']);
   }

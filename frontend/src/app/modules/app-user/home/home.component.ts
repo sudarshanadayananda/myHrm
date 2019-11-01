@@ -15,7 +15,7 @@ export class HomeComponent implements OnInit {
  
   }
 
-  onLogout(){
+  onLogout() : void {
     this.authService.deleteToken();
     this.router.navigate(['/login']);
   }

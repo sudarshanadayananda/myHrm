@@ -7,15 +7,13 @@
 
 module.exports = {
     
-    //add user
-    addUser: function(req, res) {
-        var name     =  req.body.name;
-        var email    =  req.body.email;
-        var password =  req.body.password;
-        var role     =  req.body.role;
+      addUser: function(req, res) {
+        let name = req.body.name;
+        let email = req.body.email;
+        let password = req.body.password;
+        let role = req.body.role;
 
-        console.log(req.body);
-        User.findOne({ email: email}).exec(function (err, fUser) {
+        User.findOne({ email: email }).exec(function (err, fUser) {
 
           if (err) {
             return res.serverError(err)
@@ -33,7 +31,8 @@ module.exports = {
             });
           }
         });
-    },
+      }
+
 
     
 };

@@ -5,16 +5,16 @@
  * @help        :: See http://sailsjs.org/#!/documentation/concepts/Controllers
  */
 
-var Config = require('../services/Config');
-var BcryptService = require('../services/BcryptService');
-var JwtService = require('../services/JwtService');
+let Config = require('../services/Config');
+let BcryptService = require('../services/BcryptService');
+let JwtService = require('../services/JwtService');
 
 module.exports = {
     
     authenticate: function (req, res) {
         
-        var email = req.body.email;
-        var password = req.body.password;
+        let email = req.body.email;
+        let password = req.body.password;
 
         //Email validation.
         if(!email || email === 'null' || email === 'undefined'){
@@ -35,7 +35,7 @@ module.exports = {
         }
 
         //User find query.
-        var criteria = { email: email };
+        let criteria = { email: email };
 
         User.findOne(criteria)
             . exec(function (err, user) {
@@ -53,7 +53,7 @@ module.exports = {
                     if(isMatched) {
                         JwtService.craeteToken(user, function (token) {
 
-                            var data = { email: user.email, name: user.email, role: user.role };
+                            let data = { email: user.email, name: user.email, role: user.role };
                             return res.send({ status: Config.STATUS.SUCCESS, data: data, token: token });
                         });
                     }
@@ -62,5 +62,6 @@ module.exports = {
                 });
              });
     },
-};
 
+       
+};

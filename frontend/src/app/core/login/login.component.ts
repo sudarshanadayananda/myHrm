@@ -3,7 +3,7 @@ import { Router } from '@angular/router';
 import { NgForm } from '@angular/forms';
 import { UserService } from '../services/user/user.service';
 import { AuthService } from '../services/auth/auth.service';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -22,12 +22,12 @@ export class LoginComponent implements OnInit {
 
   constructor(private userService: UserService, private authService: AuthService ,private router: Router) { }
 
-  ngOnInit() {
+   ngOnInit() {
     if(this.authService.isLoggedIn())
     this.router.navigate(['/admin']);
   }
 
-  onSubmit(loginForm){
+  onSubmit(loginForm) : void {
     this.userService.login(loginForm.value).subscribe(
       res => {
         this.authService.setToken(res['token']);

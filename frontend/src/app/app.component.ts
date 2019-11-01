@@ -10,7 +10,7 @@ export class AppComponent {
 
   constructor(private router: Router) {
     // For testing only, should be removed after implementing TODOs.
-    this.router.navigate(['login']);
+    // this.router.navigate(['login']);
   }
   /**
    * TODOs:

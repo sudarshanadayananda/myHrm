@@ -13,10 +13,7 @@ const routes: Routes = [
 
  
   // Lazy Loading AdminUserModule
-  { 
-    path: 'admin', 
-    loadChildren: './modules/admin-user/admin-user.module#AdminUserModule' 
-  },
+  { path: 'admin',  loadChildren: './modules/admin-user/admin-user.module#AdminUserModule' },
   // Lazy Loading AppUserModule
   { path: 'appuser', loadChildren: './modules/app-user/app-user.module#AppUserModule' },
 ];

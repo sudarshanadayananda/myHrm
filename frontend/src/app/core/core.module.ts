@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FooterComponent } from './footer/footer.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MaterialModule } from '../../material-module';
+import { MaterialModule } from '../shared/material-module';
 import { NavigationHeaderComponent } from '../shared/components/navigation-header/navigation-header.component';
 
 import { LoginComponent } from './login/login.component';

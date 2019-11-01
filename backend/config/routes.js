@@ -38,7 +38,7 @@ module.exports.routes = {
 
   /***************************************************************************
   *                                                                          *
-  * Custom routes here...                                                     *
+  * Custom routes here...                                                    *
   *                                                                          *
   * If a request to a URL doesn't match any of the custom routes above, it   *
   * is matched against Sails route blueprints. See `config/blueprints.js`    *
@@ -47,5 +47,7 @@ module.exports.routes = {
   ***************************************************************************/
 
   'POST /api/auth/authenticate' : 'AuthController.authenticate',
+
+  //admin-user
   'POST /api/user/addUser' : 'UserController.addUser',
 };

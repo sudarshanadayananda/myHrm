@@ -31,6 +31,9 @@ export class UserService {
     return this.http.post(this.CMS_API + 'api/auth/authenticate', authCredentials, httpOptions);
   }
 
- 
+  //add new user
+  addUser(data: any): Observable<any> {
+    return this.http.post(this.CMS_API + 'api/user/addUser', data, httpOptions);
+  }
 
 }
