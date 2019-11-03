@@ -10,7 +10,8 @@
 
 
         <!--login form-->
-        <form [formGroup]="loginForm" (ngSubmit)="loginForm.valid && onSubmit(loginForm)">
+        <form [formGroup]="loginForm" (submit)="loginForm.valid && onSubmit()">
+          
           <input type="text" formControlName="email" placeholder="Email">
 
           <input type="password" formControlName="password" placeholder="Password">
@@ -18,12 +19,7 @@
           <input type="submit" value="Sign-In">
 
         </form>
-
-
-
-        <div class="alert" *ngIf="serverErrorMessage">
-          {{serverErrorMessage}}
-        </div>
+        <div class="alert" *ngIf="errorMessage">{{errorMessage}}</div>
       </div>
     </div>
   </mat-sidenav-content>

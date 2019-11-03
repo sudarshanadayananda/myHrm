@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-// import { CoreModule } from './core/core.module';
 import { Router } from '@angular/router';
+
+import { AuthService } from './core/services/auth/auth.service';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -8,18 +9,26 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
 
-  constructor(private router: Router) {
-    // For testing only, should be removed after implementing TODOs.
-    // this.router.navigate(['login']);
-  }
-  /**
-   * TODOs:
-   * 1. Check whether the token is in local storage.
-   * 2. If there is not a token navigate user to login.
-   * 3. If there is token but if it is expired navigate user to login.
-   * 4. If token is not expired get the logged user from local storage and implement suitable logic
-   *    by considering user role.
-   **/
+  constructor(private router: Router,
+    private authService: AuthService) {
 
-   
+    this.authService.isLoggedIn()
+      .then((isLoggedIn: boolean) => {
+
+        if (isLoggedIn) {
+          this.authService.getUserFromLocalStorage()
+            .then((user: any) => {
+
+              if (user) {
+                if (user.role === 'ADMIN_USER')
+                  this.router.navigate(['admin']);
+                else
+                  this.router.navigate(['appuser']);
+              } else
+                this.router.navigate(['login']);
+            });
+        } else
+          this.router.navigate(['login']);
+      });
+  }
 }

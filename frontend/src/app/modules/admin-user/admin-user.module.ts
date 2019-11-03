@@ -1,11 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AdminRoutingModule } from './admin-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
+import { MaterialModule} from '../../shared/modules/material-module';
+import { CoreModule } from '../../core/core.module';
+import { AdminRoutingModule } from './admin-routing.module';
+
 import { HomeComponent } from './home/home.component';
 import { AddUserComponent } from './add-user/add-user.component';
-import { MaterialModule} from '../../shared/material-module';
-import { CoreModule } from '../../core/core.module';
 import { NavigationlistAdminComponent } from './navigationlist-admin/navigationlist-admin.component';
 
 @NgModule({
@@ -16,11 +18,11 @@ import { NavigationlistAdminComponent } from './navigationlist-admin/navigationl
   ],
   imports: [
     CommonModule,
-    AdminRoutingModule,
+    FormsModule, 
+    ReactiveFormsModule,
     MaterialModule,
     CoreModule,
-    FormsModule, 
-    ReactiveFormsModule
+    AdminRoutingModule
   ]
   
 })
