@@ -17,18 +17,8 @@ export class AddUserComponent implements OnInit {
   password: string;
   role: string;
 
-  //  options = [
-  //   { name: "ADMIN_USER", value: 1 },
-  //   { name: "APP_USER", value: 2 }
-  //  ];
-
   options = ['ADMIN_USER', 'APP_USER'];
 
-  
-  //  this.loginForm = new FormGroup({
-  //   email: new FormControl(null, { validators: [Validators.required] }),
-  //   password: new FormControl(null, { validators: [Validators.required] }),
-  // });
   constructor(private authService: AuthService, private userService: UserService, private router: Router) {
    this.addUserForm = new FormGroup({
       name: new FormControl(''),
@@ -39,9 +29,6 @@ export class AddUserComponent implements OnInit {
    }
 
   ngOnInit() {
-    // this.AddUserForm = this.formBuilder.group({
-    //   role: ['ADMIN_USER']
-    // });
   }
 
   addUser(AddUserForm): void {
